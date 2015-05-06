@@ -43,6 +43,7 @@
             this.Text = "WorldDisplay";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.WorldDisplay_Paint);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.WorldDisplay_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.WorldDisplay_MouseMove);
             this.ResumeLayout(false);
 
         }

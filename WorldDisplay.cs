@@ -130,9 +130,14 @@ namespace Pathfinding
 
         private void WorldDisplay_MouseDown(object sender, MouseEventArgs e)
         {
+            DrawRect();
+        }
+
+        private void DrawRect()
+        {
             Point cursorPos = this.PointToClient(Cursor.Position);
             Point targetField = new Point(cursorPos.X / fieldSize, cursorPos.Y / fieldSize);
-            switch(parentForm.SelectedBlockType)
+            switch (parentForm.SelectedBlockType)
             {
                 case BlockType.StartBlock:
                     SetStartPoint(targetField);
@@ -146,7 +151,7 @@ namespace Pathfinding
                 case BlockType.None:
                     RemovePoint(targetField);
                     break;
-                    
+
             }
 
             this.OnPaint(new PaintEventArgs(this.CreateGraphics(), this.Bounds));
@@ -201,6 +206,14 @@ namespace Pathfinding
 
             public Color color;
             public BlockType type;
+        }
+
+        private void WorldDisplay_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            {
+                DrawRect();
+            }
         }
     }
 }
